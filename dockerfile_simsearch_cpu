@@ -1,0 +1,28 @@
+FROM mambaorg/micromamba:1.4
+
+USER root
+# Keep the base environment activated
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+
+# Use micromamba to resolve conda-forge, much faster than conda
+RUN micromamba install -y python=3.7 pip rdkit=2020.09.5 -c conda-forge
+RUN pip install \
+    fastapi==0.95.1 \
+    protobuf==3.19.0 \
+    scipy \
+    tensorflow-cpu==2.7 \
+    uvicorn==0.21.1 \
+    rdchiral==1.1.0 \
+    pymongo==4.3.3 \
+    numpy==1.24.2 \
+    bson==0.5.10
+
+
+COPY . /app/similarity_search
+WORKDIR /app/similarity_search
+
+EXPOSE 9601
+
+ENV CUDA_VISIBLE_DEVICES 10
+
+CMD ["python", "simsearch_server.py"]
