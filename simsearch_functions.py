@@ -8,15 +8,17 @@ from rdchiral.template_extractor import extract_from_reaction
 from rdchiral.initialization import rdchiralReaction, rdchiralReactants
 from rdchiral.main import rdchiralRun
 
+
 # Default configurations for a variety of constants.
 DEFAULT_THRESHOLD = 0.1
+
 # Morgan fingerprints
 DEFAULT_MORGAN_RADIUS = 2
 DEFAULT_MORGAN_LEN = 2048
+
 # LSH constants
 DEFAULT_BIT_N = 2048
 DEFAULT_BUCKET_N = 25
-
 
 def calc_tanimoto(Na, Nb):
     """Calculates the Tanimoto similarity coefficient between two sets NA and NB."""

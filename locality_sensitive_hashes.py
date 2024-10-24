@@ -4,17 +4,19 @@ import numpy as np
 import sys
 import functools
 
+
 # Morgan fingerprints
 DEFAULT_MORGAN_RADIUS = 2
 DEFAULT_MORGAN_LEN = 2048
+
 # LSH constants
 DEFAULT_BIT_N = 2048
 DEFAULT_BUCKET_N = 25
 DEFAULT_PERM_LEN = 2048
 DEFAULT_PERM_N = 100
+
 # PyMongo configurations
 DEFAULT_BATCH_SIZE = 100
-
 
 def get_permutations(len_permutations=DEFAULT_PERM_LEN, num_permutations=DEFAULT_PERM_N):
     """Gets NUM_PERMUTATIONS random permutations of numbers of length LEN_PERMUTATIONS each."""
